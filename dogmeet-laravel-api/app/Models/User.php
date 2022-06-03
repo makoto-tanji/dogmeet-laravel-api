@@ -23,6 +23,7 @@ class User extends Authenticatable implements JWTSubject
         'name',
         'email',
         'password',
+        'role_id'  //追加
     ];
 
     /**
@@ -53,5 +54,32 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    // usersテーブルが持つrole_idからrolesテーブルのレコードを1件取得
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    // dogsテーブルが持つuser_idからusersテーブルのレコードを1件参照される
+    public function dog()
+    {
+        return $this->hasOne(Dog::class);
+    }
+
+    // 中間テーブルreservations経由で予約データを取得
+    public function reservations()
+    {
+        return $this->belongsToMany(Reservation::class)
+            ->withPivot('reservation_date');
+
+        // return $this->belongsToMany(User::class, 'reservations', 'user_id', 'dog_id')->withPivot('id', 'reservation_date');
+    }
+
+    // 中間テーブルfavorites経由で「いいね」した犬データを取得
+    public function favorites()
+    {
+        return $this->belongsToMany(dog::class, 'favorites', 'user_id', 'dog_id')->withPivot('id');
     }
 }
