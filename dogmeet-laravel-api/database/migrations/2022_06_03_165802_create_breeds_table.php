@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('breeds', function (Blueprint $table) {
             $table->id();
             $table->string('breed_name', 191);
+            $table->unsignedTinyInteger('size');
             $table->timestamps();
         });
     }

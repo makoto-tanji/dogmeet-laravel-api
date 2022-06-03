@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('sexes', function (Blueprint $table) {
             $table->id();
-            $table->string('sex', 191);
+            $table->unsignedTinyInteger('sex');
             $table->timestamps();
         });
     }

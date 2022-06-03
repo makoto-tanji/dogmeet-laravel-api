@@ -10,7 +10,8 @@ class Breed extends Model
     use HasFactory;
 
     protected $fillable = [
-        'breed_name'
+        'breed_name',
+        'size'
     ];
 
     // dogsテーブルが持つbreed_idからbreedsテーブルのレコードが1件参照される
