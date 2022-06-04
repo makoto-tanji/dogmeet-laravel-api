@@ -20,5 +20,14 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        if (App::environment('local')) {
+            $this->call(AreasTableSeeder::class);
+            $this->call(BreedsTableSeeder::class);
+            $this->call(ColorDogTableSeeder::class);
+            $this->call(ColorsTableSeeder::class);
+            $this->call(DogsTableSeeder::class);
+            $this->call(UsersTableSeeder::class);
+        }elseif(App::environment('production')) {
+        }
     }
 }
