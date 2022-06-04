@@ -56,12 +56,6 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
 
-    // usersテーブルが持つrole_idからrolesテーブルのレコードを1件取得
-    public function role()
-    {
-        return $this->belongsTo(Role::class);
-    }
-
     // dogsテーブルが持つuser_idからusersテーブルのレコードを1件参照される
     public function dog()
     {

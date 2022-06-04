@@ -31,11 +31,6 @@ class Dog extends Model
         return $this->belongsTo(Breed::class);
     }
 
-    public function sex()
-    {
-        return $this->belongsTo(Sex::class);
-    }
-
     public function user()
     {
         return $this->belongsTo(User::class);
