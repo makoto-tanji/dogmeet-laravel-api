@@ -17,13 +17,13 @@ return new class extends Migration
             $table->id();
             $table->time('start_time');
             $table->time('end_time');
-            $table->unsignedTinyInteger('sunday');
-            $table->unsignedTinyInteger('monday');
-            $table->unsignedTinyInteger('tuesday');
-            $table->unsignedTinyInteger('wednesday');
-            $table->unsignedTinyInteger('thursday');
-            $table->unsignedTinyInteger('friday');
-            $table->unsignedTinyInteger('saturday');
+            $table->unsignedTinyInteger('sunday')->default(0);
+            $table->unsignedTinyInteger('monday')->default(0);
+            $table->unsignedTinyInteger('tuesday')->default(0);
+            $table->unsignedTinyInteger('wednesday')->default(0);
+            $table->unsignedTinyInteger('thursday')->default(0);
+            $table->unsignedTinyInteger('friday')->default(0);
+            $table->unsignedTinyInteger('saturday')->default(0);
             $table->timestamps();
         });
     }

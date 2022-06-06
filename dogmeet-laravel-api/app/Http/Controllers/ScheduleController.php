@@ -2,28 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Reservation;
+use App\Models\Schedule;
 use Illuminate\Http\Request;
 
-class ReservationController extends Controller
+class ScheduleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-        $items = Reservation::with([
-            'user_id',
-            'dog_id',
-        ])->get();
-        return response()->json([
-            'reservatoinData' => $items
-        ], 200);
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -33,9 +16,9 @@ class ReservationController extends Controller
     public function store(Request $request)
     {
         //
-        $item = Reservation::create($request->all());
+        $item = Schedule::create($request->all());
         return response()->json([
-            'reservationSoreData' => $item
+            'scheduleStoreData' => $item
         ], 201);
     }
 
@@ -43,16 +26,24 @@ class ReservationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Reservation  $reservation
+     * @param  \App\Models\Schedule  $schedule
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Reservation $reservation)
+    public function update(Request $request, Schedule $schedule)
     {
         //
         $update = [
-            'reservation_date' => $request->reservation_date
+            'start_itme' => $request->start_itme,
+            'end_time' => $request->end_time,
+            'sunday' => $request->sunday,
+            'monday' => $request->monday,
+            'tuesday' => $request->tuesday,
+            'wednesday' => $request->wednesday,
+            'thursday' => $request->thursday,
+            'friday' => $request->friday,
+            'saturday' => $request->saturday
         ];
-        $item = Reservation::where('id', $reservation->id)->update($update);
+        $item = Schedule::where('id', $schedule->id)->update($update);
         if ($item) {
             return response()->json([
                 'message' => 'Updated successfully',
@@ -67,20 +58,20 @@ class ReservationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Reservation  $reservation
+     * @param  \App\Models\Schedule  $schedule
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Reservation $reservation)
+    public function destroy(Schedule $schedule)
     {
         //
-        $item = Reservation::where('id', $reservation->id)->delete();
+        $item = Schedule::where('id', $schedule->id)->delete();
         if ($item) {
             return response()->json([
-                'message' => 'Deleted successfully',
+                'message' => 'Deleted successfully'
             ], 200);
         } else {
             return response()->json([
-                'message' => 'Not found',
+                'message' => 'Not found'
             ], 404);
         }
     }
