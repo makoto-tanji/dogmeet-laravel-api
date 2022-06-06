@@ -13,10 +13,10 @@ class Dog extends Model
         'dog_name',
         'overview',
         'birthday',
+        'sex',
         'thumbnail_path',
         'area_id',
         'breed_id',
-        'sex_id',
         'user_id',
     ];
 
@@ -45,6 +45,6 @@ class Dog extends Model
     // 中間テーブルdog_schedule経由でschedule取得
     public function dog_schedule()
     {
-        return $this->belongsToMany(Schedule::class);
+        return $this->belongsToMany(Schedule::class)->withPivot('meridian');
     }
 }

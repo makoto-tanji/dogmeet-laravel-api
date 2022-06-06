@@ -3,7 +3,13 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 // 以下追加
+use App\Http\Controllers\AreaController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BreedController;
+use App\Http\Controllers\DogController;
+use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\ScheduleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +35,7 @@ Route::group([
     Route::post('refresh', [AuthController::class, 'refresh']);
     Route::get('user', [AuthController::class, 'me']);
 });
+
+Route::apiResource('/dog', DogController::class)->only([
+    'index', 'show'
+])->withoutMiddleware(['auth:api']);

@@ -16,10 +16,11 @@ class DogController extends Controller
     {
         //
         $items = Dog::with([
-            'user',
+            // 'user',
             'area',
             'breed',
             'color_dog',
+            'dog_schedule'
         ])->get();
         return response()->json([
             'dogData' => $items

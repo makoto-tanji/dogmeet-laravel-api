@@ -24,7 +24,7 @@ class DogsTableSeeder extends Seeder
             'sex' => '1',
             'thumbnail_path' => '',
             'area_id' => '1',
-            'breed_id' => '77',
+            'breed_id' => '76',
             'user_id' => '1',
         ];
         DB::table('dogs')->insert($param);
@@ -57,7 +57,7 @@ class DogsTableSeeder extends Seeder
             'sex' => '1',
             'thumbnail_path' => '',
             'area_id' => '4',
-            'breed_id' => '120',
+            'breed_id' => '119',
             'user_id' => '4',
         ];
         DB::table('dogs')->insert($param);
@@ -68,7 +68,7 @@ class DogsTableSeeder extends Seeder
             'sex' => '2',
             'thumbnail_path' => '',
             'area_id' => '4',
-            'breed_id' => '93',
+            'breed_id' => '92',
             'user_id' => '5',
         ];
         DB::table('dogs')->insert($param);
