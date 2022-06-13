@@ -16,10 +16,10 @@ class DogController extends Controller
     {
         //
         $items = Dog::with([
-            // 'user',
-            'area',
-            'breed',
-            'color_dog',
+            'user:id,name',
+            'area:id,area_name',
+            'breed:id,breed_name,size',
+            'color_dog:id,color',
             'dog_schedule'
         ])->get();
         return response()->json([
@@ -52,10 +52,10 @@ class DogController extends Controller
     {
         //
         $item = Dog::with([
-            'user',
-            'area',
-            'breed',
-            'color_dog',
+            'user:id,name',
+            'area:id,area_name',
+            'breed:id,breed_name,size',
+            'color_dog:id,color',
         ])->where('id', $dog->id)->get();
         if($item) {
             return response()->json([

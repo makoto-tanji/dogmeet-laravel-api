@@ -13,7 +13,7 @@ class Area extends Model
         'area_name'
     ];
 
-    // usersテーブルが持つarea_idからrolesテーブルのレコードが1件参照される
+    // dogsテーブルが持つarea_idからrolesテーブルのレコードが1件参照される
     public function dog()
     {
         return $this->hasOne(User::class);
