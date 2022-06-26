@@ -56,6 +56,7 @@ class DogController extends Controller
             'area:id,area_name',
             'breed:id,breed_name,size',
             'color_dog:id,color',
+            'dog_schedule'
         ])->where('id', $dog->id)->get();
         if($item) {
             return response()->json([

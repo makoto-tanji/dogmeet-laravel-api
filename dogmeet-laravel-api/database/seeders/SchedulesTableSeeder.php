@@ -18,8 +18,8 @@ class SchedulesTableSeeder extends Seeder
     {
         //
         $param = [
-            'start_time' => '08:00',
-            'end_time' => '09:30',
+            'start_time' => '8:00',
+            'end_time' => '9:30',
             'sunday' => '0',
             'monday' => '1',
             'tuesday' => '1',
