@@ -29,5 +29,31 @@ class DogScheduleTableSeeder extends Seeder
             'meridian' => '2'
         ];
         DB::table('dog_schedule')->insert($param);
+
+        $param = [
+            'dog_id' => '2',
+            'schedule_id' => '3',
+            'meridian' => '1'
+        ];
+        DB::table('dog_schedule')->insert($param);
+        $param = [
+            'dog_id' => '2',
+            'schedule_id' => '4',
+            'meridian' => '2'
+        ];
+        DB::table('dog_schedule')->insert($param);
+
+        $param = [
+            'dog_id' => '3',
+            'schedule_id' => '5',
+            'meridian' => '1'
+        ];
+        DB::table('dog_schedule')->insert($param);
+        $param = [
+            'dog_id' => '3',
+            'schedule_id' => '6',
+            'meridian' => '2'
+        ];
+        DB::table('dog_schedule')->insert($param);
     }
 }

@@ -16,7 +16,7 @@ class FavoriteController extends Controller
     public function store(Request $request)
     {
         //
-        $item = Favorite::create($request->all());
+        // $item = Favorite::create($request->all());
         return response()->json([
             'favoriteData' => $item
         ], 201);
@@ -31,7 +31,7 @@ class FavoriteController extends Controller
     public function destroy(Request $requet)
     {
         //
-        $item = Favorite::where('user_id', $request->userId)->where('shop_id', $request->shopId)->delete();
+        $item = Favorite::where('user_id', $request->userId)->where('dog_id', $request->dogId)->delete();
         if ($item) {
             return response()->json([
                 'message' => 'Deleted successfully'
