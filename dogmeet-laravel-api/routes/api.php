@@ -34,6 +34,11 @@ Route::group([
     Route::post('logout', [AuthController::class, 'logout']);
     Route::post('refresh', [AuthController::class, 'refresh']);
     Route::get('user', [AuthController::class, 'me']);
+
+    // 以下追加
+    Route::apiResource('/reservation', ReservationController::class)->only([
+        'store', 'update', 'destroy'
+    ]);
 });
 
 Route::apiResource('/dog', DogController::class)->only([
