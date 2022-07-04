@@ -42,7 +42,12 @@ class AuthController extends Controller
 
     public function me()
     {
-        return response()->json(auth()->user());
+        // return response()->json(auth()->user());
+        $userId = auth()->user()->id;
+        $user = User::with([
+            'favorites:id'
+        ])->find($userId);
+        return $user;
     }
 
     public function logout()

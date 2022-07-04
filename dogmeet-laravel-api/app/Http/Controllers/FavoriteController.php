@@ -16,7 +16,7 @@ class FavoriteController extends Controller
     public function store(Request $request)
     {
         //
-        // $item = Favorite::create($request->all());
+        $item = Favorite::create($request->all());
         return response()->json([
             'favoriteData' => $item
         ], 201);
