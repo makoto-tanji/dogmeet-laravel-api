@@ -28,7 +28,7 @@ class FavoriteController extends Controller
      * @param  \App\Models\Favorite  $favorite
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $requet)
+    public function destroy(Request $request)
     {
         //
         $item = Favorite::where('user_id', $request->userId)->where('dog_id', $request->dogId)->delete();
