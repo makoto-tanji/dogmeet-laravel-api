@@ -45,7 +45,10 @@ class AuthController extends Controller
         // return response()->json(auth()->user());
         $userId = auth()->user()->id;
         $user = User::with([
-            'favorites:id'
+            'favorites.area',
+            'favorites.breed',
+            'reservations.area',
+            'reservations.breed',
         ])->find($userId);
         return $user;
     }

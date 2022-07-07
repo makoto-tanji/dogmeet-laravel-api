@@ -65,15 +65,15 @@ class User extends Authenticatable implements JWTSubject
     // 中間テーブルreservations経由で予約データを取得
     public function reservations()
     {
-        return $this->belongsToMany(Reservation::class)
-            ->withPivot('reservation_date');
+        // return $this->belongsToMany(Reservation::class)
+        //     ->withPivot('reservation_date');
 
-        // return $this->belongsToMany(User::class, 'reservations', 'user_id', 'dog_id')->withPivot('id', 'reservation_date');
+        return $this->belongsToMany(Dog::class, 'reservations', 'user_id', 'dog_id')->withPivot('id', 'reservation_date');
     }
 
     // 中間テーブルfavorites経由で「いいね」した犬データを取得
     public function favorites()
     {
-        return $this->belongsToMany(dog::class, 'favorites', 'user_id', 'dog_id')->withPivot('id');
+        return $this->belongsToMany(Dog::class, 'favorites', 'user_id', 'dog_id')->withPivot('id');
     }
 }
