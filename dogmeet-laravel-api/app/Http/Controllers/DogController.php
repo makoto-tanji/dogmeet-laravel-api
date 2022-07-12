@@ -80,13 +80,13 @@ class DogController extends Controller
     {
         //
         $update = [
-            'dog_name' => $dog->dog_name,
-            'overview' => $dog->overview,
-            'birthday' => $dog->birthday,
-            'sex' => $dog->sex,
-            'thumbnail_path' => $dog->thumbnail_path,
-            'area_id' => $dog->area_id,
-            'breed_id' => $dog->beed_id,
+            'dog_name' => $request->dog_name,
+            'overview' => $request->overview,
+            'birthday' => $request->birthday,
+            'sex' => $request->sex,
+            'thumbnail_path' => $request->thumbnail_path,
+            'area_id' => $request->area_id,
+            'breed_id' => $request->breed_id,
         ];
         $item = Dog::where('id', $dog->id)->update($update);
         if ($item) {
