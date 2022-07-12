@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Schedule;
 use Illuminate\Http\Request;
 
+
+
 class ScheduleController extends Controller
 {
     /**
@@ -33,7 +35,7 @@ class ScheduleController extends Controller
     {
         //
         $update = [
-            'start_itme' => $request->start_itme,
+            'start_time' => $request->start_time,
             'end_time' => $request->end_time,
             'sunday' => $request->sunday,
             'monday' => $request->monday,

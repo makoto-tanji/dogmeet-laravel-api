@@ -43,6 +43,9 @@ Route::group([
     Route::post('favorite/destroy', [FavoriteController::class, 'destroy']);
 
     Route::apiResource('/dog', DogController::class)->only(['update', 'destroy']);
+    Route::apiResource('/schedule', ScheduleController::class)->only([
+        'store', 'update', 'destroy'
+    ]);
 });
 
 Route::apiResource('/dog', DogController::class)->only([
