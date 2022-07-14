@@ -58,7 +58,7 @@ class DogsTableSeeder extends Seeder
             'thumbnail_path' => 'storage/images/test4.jpg',
             'area_id' => '4',
             'breed_id' => '119',
-            'user_id' => '4',
+            'user_id' => '1',
         ];
         DB::table('dogs')->insert($param);
         $param = [
@@ -69,7 +69,7 @@ class DogsTableSeeder extends Seeder
             'thumbnail_path' => 'storage/images/test5.jpg',
             'area_id' => '4',
             'breed_id' => '92',
-            'user_id' => '5',
+            'user_id' => '1',
         ];
         DB::table('dogs')->insert($param);
     }

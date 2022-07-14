@@ -18,6 +18,15 @@ return new class extends Migration
             $table->unsignedBigInteger('color_id');
             $table->unsignedBigInteger('dog_id');
             $table->timestamps();
+
+            $table->foreign('color_id')
+                ->references('id')
+                ->on('colors')
+                ->cascadeOnDelete();
+            $table->foreign('dog_id')
+                ->references('id')
+                ->on('dogs')
+                ->cascadeOnDelete();
         });
     }
 

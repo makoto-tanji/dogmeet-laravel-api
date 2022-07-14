@@ -19,6 +19,15 @@ return new class extends Migration
             $table->unsignedBigInteger('schedule_id');
             $table->unsignedTinyInteger('meridian');
             $table->timestamps();
+
+            $table->foreign('dog_id')
+                ->references('id')
+                ->on('dogs')
+                ->cascadeOnDelete();
+            $table->foreign('schedule_id')
+                ->references('id')
+                ->on('schedules')
+                ->cascadeOnDelete();
         });
     }
 

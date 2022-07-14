@@ -25,12 +25,12 @@ class DatabaseSeeder extends Seeder
         if (App::environment('local')) {
             $this->call(AreasTableSeeder::class);
             $this->call(BreedsTableSeeder::class);
-            $this->call(ColorDogTableSeeder::class);
             $this->call(ColorsTableSeeder::class);
-            $this->call(DogScheduleTableSeeder::class);
+            $this->call(UsersTableSeeder::class);
             $this->call(DogsTableSeeder::class);
             $this->call(SchedulesTableSeeder::class);
-            $this->call(UsersTableSeeder::class);
+            $this->call(ColorDogTableSeeder::class);
+            $this->call(DogScheduleTableSeeder::class);
         }elseif(App::environment('production')) {
         }
     }

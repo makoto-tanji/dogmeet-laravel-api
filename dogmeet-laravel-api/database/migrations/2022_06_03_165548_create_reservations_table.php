@@ -19,6 +19,15 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->dateTime('reservation_date');
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->cascadeOnDelete();
+            $table->foreign('dog_id')
+                ->references('id')
+                ->on('dogs')
+                ->cascadeOnDelete();
         });
     }
 

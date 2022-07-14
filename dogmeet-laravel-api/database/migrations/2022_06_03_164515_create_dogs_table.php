@@ -24,6 +24,19 @@ return new class extends Migration
             $table->unsignedBigInteger('breed_id');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
+
+            $table->foreign('area_id')
+                ->references('id')
+                ->on('areas')
+                ->cascadeOnDelete();
+            $table->foreign('breed_id')
+                ->references('id')
+                ->on('breeds')
+                ->cascadeOnDelete();
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->cascadeOnDelete();
         });
     }
 

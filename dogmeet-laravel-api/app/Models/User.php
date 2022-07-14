@@ -77,13 +77,4 @@ class User extends Authenticatable implements JWTSubject
         return $this->belongsToMany(Dog::class, 'favorites', 'user_id', 'dog_id')->withPivot('id');
     }
 
-    // ユーザーが削除された時に関連するテーブルも削除
-    public static function boot()
-    {
-        parent::boot();
-
-        static::deleting(function ($user) {
-            $user->dogs()->delete();
-        });
-    }
 }
