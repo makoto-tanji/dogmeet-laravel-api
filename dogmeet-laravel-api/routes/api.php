@@ -34,6 +34,7 @@ Route::group([
     Route::post('logout', [AuthController::class, 'logout']);
     Route::post('refresh', [AuthController::class, 'refresh']);
     Route::get('user', [AuthController::class, 'me']);
+    Route::post('update/{userId}', [AuthController::class, 'update']);
 
     // 以下追加
     Route::apiResource('/reservation', ReservationController::class)->only([

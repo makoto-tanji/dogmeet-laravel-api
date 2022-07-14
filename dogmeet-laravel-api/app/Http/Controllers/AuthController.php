@@ -73,4 +73,25 @@ class AuthController extends Controller
             'expires_in' => auth()->factory()->getTTL() * 60
         ]);
     }
+
+    // 追加
+    public function update(Request $request, $userId)
+    {
+        //
+        $update = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password)
+        ];
+        $item = User::where('id', $userId)->update($update);
+        if ($item) {
+            return response()->json([
+                'message' => 'Updated successfully',
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'Not found'
+            ], 404);
+        }
+    }
 }
