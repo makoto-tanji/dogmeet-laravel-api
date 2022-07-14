@@ -25,6 +25,15 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        //以下追加
+        // 飼い主権限より高い場合
+        Gate::define('isHigherOwner', function($user) {
+            return $user->role <= 5;
+        });
+
+        // 管理者権限
+        Gate::define('isAdmin', function($user) {
+            return $user->role === 1;
+        });
     }
 }
