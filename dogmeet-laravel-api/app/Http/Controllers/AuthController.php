@@ -45,6 +45,8 @@ class AuthController extends Controller
         // return response()->json(auth()->user());
         $userId = auth()->user()->id;
         $user = User::with([
+            'dog.area',
+            'dog.breed',
             'favorites.area',
             'favorites.breed',
             'reservations.area',

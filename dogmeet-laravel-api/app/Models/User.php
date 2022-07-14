@@ -56,10 +56,10 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
 
-    // dogsテーブルが持つuser_idからusersテーブルのレコードを1件参照される
+    // dogsテーブルが持つuser_idから該当するdogデータを取得
     public function dog()
     {
-        return $this->hasOne(Dog::class);
+        return $this->hasMany(Dog::class);
     }
 
     // 中間テーブルreservations経由で予約データを取得
@@ -75,5 +75,15 @@ class User extends Authenticatable implements JWTSubject
     public function favorites()
     {
         return $this->belongsToMany(Dog::class, 'favorites', 'user_id', 'dog_id')->withPivot('id');
+    }
+
+    // ユーザーが削除された時に関連するテーブルも削除
+    public static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($user) {
+            $user->dogs()->delete();
+        });
     }
 }
