@@ -7,6 +7,15 @@ use Illuminate\Http\Request;
 
 class BreedController extends Controller
 {
+    public function index()
+    {
+        //
+        $items = Breed::all();
+        return response()->json([
+            'breedData' => $items
+        ], 200);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

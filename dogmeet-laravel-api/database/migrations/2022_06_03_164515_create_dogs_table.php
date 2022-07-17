@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('overview');
             $table->date('birthday');
             $table->unsignedTinyInteger('sex')->default(0);
-            $table->string('thumbnail_path', 191);
+            $table->string('thumbnail_path', 191)->nullable(true);
             $table->unsignedBigInteger('area_id');
             $table->unsignedBigInteger('breed_id');
             $table->unsignedBigInteger('user_id');

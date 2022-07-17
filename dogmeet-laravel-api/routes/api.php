@@ -37,18 +37,32 @@ Route::group([
     Route::post('update/{userId}', [AuthController::class, 'update']);
 
     // 以下追加
+    // 予約関連
     Route::apiResource('/reservation', ReservationController::class)->only([
         'store', 'update', 'destroy'
     ]);
+    // いいね関連
     Route::post('favorite', [FavoriteController::class, 'store']);
     Route::post('favorite/destroy', [FavoriteController::class, 'destroy']);
 
-    Route::apiResource('/dog', DogController::class)->only(['update', 'destroy']);
-    Route::apiResource('/schedule', ScheduleController::class)->only([
-        'store', 'update', 'destroy'
-    ]);
+    // 以下飼い主・管理者限定
+    Route::middleware(['auth', 'can:isHigherOwner'])->group(function() {
+        Route::apiResource('/dog', DogController::class)->only([
+            'store', 'update', 'destroy'
+        ]);
+        Route::apiResource('/schedule', ScheduleController::class)->only([
+            'store', 'update', 'destroy'
+        ]);
+    });
 });
 
 Route::apiResource('/dog', DogController::class)->only([
     'index', 'show'
+])->withoutMiddleware(['auth:api']);
+
+Route::apiResource('/area', AreaController::class)->only([
+    'index'
+])->withoutMiddleware(['auth:api']);
+Route::apiResource('/breed', BreedController::class)->only([
+    'index'
 ])->withoutMiddleware(['auth:api']);
