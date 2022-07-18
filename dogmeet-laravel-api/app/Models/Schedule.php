@@ -22,7 +22,8 @@ class Schedule extends Model
     ];
 
     // 中間テーブルdog_schedule経由でdog取得
-    public function dog_schedule()
+    // public function dog_schedule()
+    public function dogs()
     {
         return $this->belongsToMany(Dog::class);
     }

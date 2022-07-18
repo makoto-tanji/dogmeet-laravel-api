@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('dog_id');
             $table->unsignedBigInteger('schedule_id');
-            $table->unsignedTinyInteger('meridian');
+            $table->unsignedTinyInteger('meridian')->default(0);
             $table->timestamps();
 
             $table->foreign('dog_id')

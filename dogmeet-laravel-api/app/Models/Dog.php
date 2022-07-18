@@ -43,7 +43,8 @@ class Dog extends Model
     }
 
     // 中間テーブルdog_schedule経由でschedule取得
-    public function dog_schedule()
+    // public function dog_schedule()
+    public function schedules()
     {
         return $this->belongsToMany(Schedule::class)->withPivot('meridian');
     }

@@ -19,8 +19,12 @@ class ScheduleController extends Controller
     {
         //
         $item = Schedule::create($request->all());
+        // 中間テーブルにデータを追加
+        $schedule = Schedule::find($item->id);
+        $schedule->dogs()->attach($request->dog_id);
+
         return response()->json([
-            'scheduleStoreData' => $item
+            'scheduleStoreData' => $item,
         ], 201);
     }
 
