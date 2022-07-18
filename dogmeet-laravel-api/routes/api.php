@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BreedController;
+use App\Http\Controllers\ColorController;
 use App\Http\Controllers\DogController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\ReservationController;
@@ -64,5 +65,8 @@ Route::apiResource('/area', AreaController::class)->only([
     'index'
 ])->withoutMiddleware(['auth:api']);
 Route::apiResource('/breed', BreedController::class)->only([
+    'index'
+])->withoutMiddleware(['auth:api']);
+Route::apiResource('/color', ColorController::class)->only([
     'index'
 ])->withoutMiddleware(['auth:api']);

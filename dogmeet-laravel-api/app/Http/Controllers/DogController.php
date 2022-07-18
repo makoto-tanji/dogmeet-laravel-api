@@ -19,7 +19,7 @@ class DogController extends Controller
             'user:id,name',
             'area:id,area_name',
             'breed:id,breed_name,size',
-            'color_dog:id,color',
+            'colors:id,color',
             'schedules'
         ])->get();
         return response()->json([
@@ -37,8 +37,15 @@ class DogController extends Controller
     {
         //
         $item = Dog::create($request->all());
+        $dog = Dog::find($item->id);
+        // 配列で渡された色のidをそれぞれ中間テーブルと紐づけ
+        foreach ($request->colors as $colorId) {
+            if($colorId){
+                $dog->colors()->attach($colorId);
+            }
+        }
         return response()->json([
-            'dogStoreData' => $item
+            'dogStoreData' => $item,
         ], 201);
     }
 
@@ -55,7 +62,7 @@ class DogController extends Controller
             'user:id,name',
             'area:id,area_name',
             'breed:id,breed_name,size',
-            'color_dog:id,color',
+            'colors:id,color',
             'schedules'
         ])->where('id', $dog->id)->get();
         if($item) {

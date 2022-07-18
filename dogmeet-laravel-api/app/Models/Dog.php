@@ -37,13 +37,12 @@ class Dog extends Model
     }
 
     // 中間テーブルcolor_dog経由でcolor取得
-    public function color_dog()
+    public function colors()
     {
         return $this->belongsToMany(Color::class);
     }
 
     // 中間テーブルdog_schedule経由でschedule取得
-    // public function dog_schedule()
     public function schedules()
     {
         return $this->belongsToMany(Schedule::class)->withPivot('meridian');
