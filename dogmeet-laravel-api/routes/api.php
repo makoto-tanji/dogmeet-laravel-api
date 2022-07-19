@@ -9,6 +9,7 @@ use App\Http\Controllers\BreedController;
 use App\Http\Controllers\ColorController;
 use App\Http\Controllers\DogController;
 use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ScheduleController;
 
@@ -53,6 +54,9 @@ Route::group([
         ]);
         Route::apiResource('/schedule', ScheduleController::class)->only([
             'store', 'update', 'destroy'
+        ]);
+        Route::apiResource('/image', ImageController::class)->only([
+            'store'
         ]);
     });
 });

@@ -27,7 +27,7 @@ class AreaController extends Controller
         //
         $item = Area::create($request->all());
         return response()->json([
-            'areaSoredata' => $item
+            'areaStoredata' => $item
         ], 201);
     }
 
