@@ -96,6 +96,12 @@ class DogController extends Controller
             'breed_id' => $request->breed_id,
         ];
         $item = Dog::where('id', $dog->id)->update($update);
+        $dog->colors()->detach();
+        foreach ($request->colors as $colorId) {
+            if($colorId){
+                $dog->colors()->attach($colorId);
+            }
+        }
         if ($item) {
             return response()->json([
                 'message' => 'Updated successfully'
