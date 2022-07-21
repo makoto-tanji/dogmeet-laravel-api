@@ -12,6 +12,7 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\InformationMailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +39,6 @@ Route::group([
     Route::get('user', [AuthController::class, 'me']);
     Route::post('update/{userId}', [AuthController::class, 'update']);
 
-    // 以下追加
     // 予約関連
     Route::apiResource('/reservation', ReservationController::class)->only([
         'store', 'update', 'destroy'
@@ -58,6 +58,13 @@ Route::group([
         Route::apiResource('/image', ImageController::class)->only([
             'store'
         ]);
+    });
+
+    // 管理者限定
+    Route::middleware(['auth', 'can:isAdmin'])->group(function() {
+        Route::get('users', [AuthController::class, 'getUsers']);
+        Route::post('mail', [InformationMailController::class, 'send']);
+
     });
 });
 
