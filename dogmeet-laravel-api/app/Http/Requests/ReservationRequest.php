@@ -30,7 +30,9 @@ class ReservationRequest extends FormRequest
             //
             'user_id' => 'required',
             'dog_id' => 'required',
-            'reservation_date' => 'required|date_format:Y-m-d H:i|after:now + 1hours'
+            'reservation_date' => 'required|date_format:Y-n-j H:i:s|after:now + 1hours'
+            // Y-n-jは先頭の0なし
+            // Y-m-dは先頭に0有り
         ];
     }
 
@@ -41,7 +43,7 @@ class ReservationRequest extends FormRequest
             'user_id.required' => 'ユーザーIDがありません',
             'dog_id.required' => 'ドッグIDがありません',
             'reservation_date.required' => '日時を選択してください',
-            'reservation_date.date_format' => '日時を選択してください',
+            'reservation_date.date_format' => '日時形式を選択してください',
             'reservation_date.after' => '現時刻から1時間後よりお選びください',
         ];
     }
