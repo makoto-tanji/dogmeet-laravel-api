@@ -38,6 +38,7 @@ Route::group([
     Route::post('refresh', [AuthController::class, 'refresh']);
     Route::get('user', [AuthController::class, 'me']);
     Route::post('update/{userId}', [AuthController::class, 'update']);
+    Route::post('role/{userId}', [AuthController::class, 'updateRole']);
 
     // 予約関連
     Route::apiResource('/reservation', ReservationController::class)->only([
@@ -64,7 +65,6 @@ Route::group([
     Route::middleware(['auth', 'can:isAdmin'])->group(function() {
         Route::get('users', [AuthController::class, 'getUsers']);
         Route::post('mail', [InformationMailController::class, 'send']);
-
     });
 });
 

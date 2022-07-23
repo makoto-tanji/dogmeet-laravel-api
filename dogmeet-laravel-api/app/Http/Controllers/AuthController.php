@@ -102,4 +102,20 @@ class AuthController extends Controller
         $users = User::all();
         return $users;
     }
+    public function updateRole(Request $request, $userId)
+    {
+        $update = [
+            'role' => $request->role
+        ];
+        $item = User::where('id', $userId)->update($update);
+        if ($item) {
+            return response()->json([
+                'message' => 'Updated successfully',
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'Not found'
+            ], 404);
+        }
+    }
 }
