@@ -18,12 +18,7 @@ class AreaTest extends TestCase
      *
      * @return void
      */
-    // public function test_example()
-    // {
-    //     $response = $this->get('/');
 
-    //     $response->assertStatus(200);
-    // }
     public function testArea()
     {
         $this->assertDatabaseHas('areas',[
@@ -34,6 +29,9 @@ class AreaTest extends TestCase
         ]);
         $this->assertDatabaseHas('areas',[
             'area_name' => '臨海公園'
+        ]);
+        $this->assertDatabaseHas('areas',[
+            'area_name' => '森林公園'
         ]);
         $this->assertDatabaseHas('areas',[
             'area_name' => '第二森林公園'

@@ -4,8 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-// 以下追加
-use Illuminate\Support\Facades\App;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,25 +21,13 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        if (App::environment('local')) {
-            $this->call(AreasTableSeeder::class);
-            $this->call(BreedsTableSeeder::class);
-            $this->call(ColorsTableSeeder::class);
-            $this->call(UsersTableSeeder::class);
-            $this->call(DogsTableSeeder::class);
-            $this->call(SchedulesTableSeeder::class);
-            $this->call(ColorDogTableSeeder::class);
-            $this->call(DogScheduleTableSeeder::class);
-        }elseif(App::environment('production')) {
-        }elseif(App::environment('test')) {
-            $this->call(AreasTableSeeder::class);
-            $this->call(BreedsTableSeeder::class);
-            $this->call(ColorsTableSeeder::class);
-            $this->call(UsersTableSeeder::class);
-            $this->call(DogsTableSeeder::class);
-            $this->call(SchedulesTableSeeder::class);
-            $this->call(ColorDogTableSeeder::class);
-            $this->call(DogScheduleTableSeeder::class);
-        }
+        $this->call(AreasTableSeeder::class);
+        $this->call(BreedsTableSeeder::class);
+        $this->call(ColorsTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
+        $this->call(DogsTableSeeder::class);
+        $this->call(SchedulesTableSeeder::class);
+        $this->call(ColorDogTableSeeder::class);
+        $this->call(DogScheduleTableSeeder::class);
     }
 }

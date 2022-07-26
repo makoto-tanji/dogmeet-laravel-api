@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 //以下追加
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\App;
 
 class ColorDogTableSeeder extends Seeder
 {
@@ -52,5 +53,23 @@ class ColorDogTableSeeder extends Seeder
             'dog_id' => '5',
         ];
         DB::table('color_dog')->insert($param);
+
+        if(App::environment('production')) {
+            $param = [
+                'color_id' => '1',
+                'dog_id' => '7',
+            ];
+            DB::table('color_dog')->insert($param);
+            $param = [
+                'color_id' => '3',
+                'dog_id' => '7',
+            ];
+            DB::table('color_dog')->insert($param);
+            $param = [
+                'color_id' => '5',
+                'dog_id' => '7',
+            ];
+            DB::table('color_dog')->insert($param);
+        }
     }
 }

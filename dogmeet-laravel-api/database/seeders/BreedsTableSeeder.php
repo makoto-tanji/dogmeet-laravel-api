@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 //以下追加
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\App;
 
 class BreedsTableSeeder extends Seeder
 {
@@ -228,7 +229,7 @@ class BreedsTableSeeder extends Seeder
         ];
         DB::table('breeds')->insert($param);
         $param = [
-            'breed_name' => 'ミックス',
+            'breed_name' => 'ミックス(小型)',
             'size' => '1',
         ];
         DB::table('breeds')->insert($param);
@@ -280,12 +281,12 @@ class BreedsTableSeeder extends Seeder
         ];
         DB::table('breeds')->insert($param);
         $param = [
-            'breed_name' => 'ウェルシュ・コーギー・カーディガン',
+            'breed_name' => 'ウェルシュコーギーカーディガン',
             'size' => '2',
         ];
         DB::table('breeds')->insert($param);
         $param = [
-            'breed_name' => 'ウェルシュ・コーギー・ペンブローク',
+            'breed_name' => 'ウェルシュコーギーペンブローク',
             'size' => '2',
         ];
         DB::table('breeds')->insert($param);
@@ -319,7 +320,7 @@ class BreedsTableSeeder extends Seeder
             'size' => '2',
         ];
         $param = [
-            'breed_name' => 'スタンダード・ダックス',
+            'breed_name' => 'スタンダードダックス',
             'size' => '2',
         ];
         DB::table('breeds')->insert($param);
@@ -369,17 +370,17 @@ class BreedsTableSeeder extends Seeder
         ];
         DB::table('breeds')->insert($param);
         $param = [
-            'breed_name' => 'ミディアム・プードル',
+            'breed_name' => 'ミディアムプードル',
             'size' => '2',
         ];
         DB::table('breeds')->insert($param);
         $param = [
-            'breed_name' => 'ミニチュア・ブルテリア',
+            'breed_name' => 'ミニチュアブルテリア',
             'size' => '2',
         ];
         DB::table('breeds')->insert($param);
         $param = [
-            'breed_name' => 'ワイアーフォックス・テリア',
+            'breed_name' => 'ワイアーフォックステリア',
             'size' => '2',
         ];
         DB::table('breeds')->insert($param);
@@ -409,7 +410,7 @@ class BreedsTableSeeder extends Seeder
         ];
         DB::table('breeds')->insert($param);
         $param = [
-            'breed_name' => 'ミックス',
+            'breed_name' => 'ミックス(中型)',
             'size' => '2',
         ];
         DB::table('breeds')->insert($param);
@@ -436,12 +437,12 @@ class BreedsTableSeeder extends Seeder
         ];
         DB::table('breeds')->insert($param);
         $param = [
-            'breed_name' => 'イングリッシュ・セター',
+            'breed_name' => 'イングリッシュセター',
             'size' => '3',
         ];
         DB::table('breeds')->insert($param);
         $param = [
-            'breed_name' => 'イングリッシュ・ポインター',
+            'breed_name' => 'イングリッシュポインター',
             'size' => '3',
         ];
         DB::table('breeds')->insert($param);
@@ -481,7 +482,7 @@ class BreedsTableSeeder extends Seeder
         ];
         DB::table('breeds')->insert($param);
         $param = [
-            'breed_name' => 'ゴールデン・レトリーバー',
+            'breed_name' => 'ゴールデンレトリーバー',
             'size' => '3',
         ];
         DB::table('breeds')->insert($param);
@@ -506,7 +507,7 @@ class BreedsTableSeeder extends Seeder
         ];
         DB::table('breeds')->insert($param);
         $param = [
-            'breed_name' => 'ジャイアント・シュナウザー',
+            'breed_name' => 'ジャイアントシュナウザー',
             'size' => '3',
         ];
         DB::table('breeds')->insert($param);
@@ -521,7 +522,7 @@ class BreedsTableSeeder extends Seeder
         ];
         DB::table('breeds')->insert($param);
         $param = [
-            'breed_name' => 'チェサピーク・ベイ・レトリバー',
+            'breed_name' => 'チェサピークベイレトリバー',
             'size' => '3',
         ];
         DB::table('breeds')->insert($param);
@@ -546,12 +547,12 @@ class BreedsTableSeeder extends Seeder
         ];
         DB::table('breeds')->insert($param);
         $param = [
-            'breed_name' => 'ビアデット・コリー',
+            'breed_name' => 'ビアデットコリー',
             'size' => '3',
         ];
         DB::table('breeds')->insert($param);
         $param = [
-            'breed_name' => 'フラットコーテッド・レトリバー',
+            'breed_name' => 'フラットコーテッドレトリバー',
             'size' => '3',
         ];
         DB::table('breeds')->insert($param);
@@ -561,12 +562,12 @@ class BreedsTableSeeder extends Seeder
         ];
         DB::table('breeds')->insert($param);
         $param = [
-            'breed_name' => 'ベルジアン・タービュレン',
+            'breed_name' => 'ベルジアンタービュレン',
             'size' => '3',
         ];
         DB::table('breeds')->insert($param);
         $param = [
-            'breed_name' => 'ベルジアン・マリノア',
+            'breed_name' => 'ベルジアンマリノア',
             'size' => '3',
         ];
         DB::table('breeds')->insert($param);
@@ -596,7 +597,7 @@ class BreedsTableSeeder extends Seeder
         ];
         DB::table('breeds')->insert($param);
         $param = [
-            'breed_name' => 'ラフ・コリー',
+            'breed_name' => 'ラフコリー',
             'size' => '3',
         ];
         DB::table('breeds')->insert($param);
@@ -626,7 +627,7 @@ class BreedsTableSeeder extends Seeder
         ];
         DB::table('breeds')->insert($param);
         $param = [
-            'breed_name' => 'ミックス',
+            'breed_name' => 'ミックス(大型)',
             'size' => '3',
         ];
         DB::table('breeds')->insert($param);

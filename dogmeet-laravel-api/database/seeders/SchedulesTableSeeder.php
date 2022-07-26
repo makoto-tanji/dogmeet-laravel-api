@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 //以下追加
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\App;
 
 class SchedulesTableSeeder extends Seeder
 {
@@ -91,5 +92,32 @@ class SchedulesTableSeeder extends Seeder
             'saturday' => '1',
         ];
         DB::table('schedules')->insert($param);
+
+        if(App::environment('production')) {
+            $param = [
+                'start_time' => '5:30',
+                'end_time' => '6:30',
+                'sunday' => '1',
+                'monday' => '1',
+                'tuesday' => '1',
+                'wednesday' => '1',
+                'thursday' => '1',
+                'friday' => '1',
+                'saturday' => '1',
+            ];
+            DB::table('schedules')->insert($param);
+            $param = [
+                'start_time' => '18:30',
+                'end_time' => '19:45',
+                'sunday' => '1',
+                'monday' => '1',
+                'tuesday' => '1',
+                'wednesday' => '1',
+                'thursday' => '1',
+                'friday' => '1',
+                'saturday' => '1',
+            ];
+            DB::table('schedules')->insert($param);
+        }
     }
 }
