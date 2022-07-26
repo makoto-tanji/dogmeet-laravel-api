@@ -35,7 +35,7 @@ class InformationMail extends Mailable
      */
     public function build()
     {
-        return $this->subject(config('app.name').'からのお知らせ')
+        return $this->subject('DogMeetからのお知らせ')
             ->text('emails.test')
             ->with([
                 'userName' => $this->name,
