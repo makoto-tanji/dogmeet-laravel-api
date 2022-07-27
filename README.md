@@ -1,5 +1,12 @@
 # DogMeet app
 
+## 概要
+
+DogMeet
+
+わんちゃん情報共有サービス
+
+
 ## ディレクトリ構成
 
 ```
@@ -10,8 +17,9 @@
  |     └────dockerfile
  |
  └────dogmeet-laravel-api
-       ├────
-       └────
+       ├────app
+       ├────bootstrap
+       └────...
 ```
 
 ## 環境構築
