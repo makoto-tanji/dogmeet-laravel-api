@@ -57,8 +57,8 @@ schedulesテーブル
 | カラム名 | 型 | PRIMARY KEY | UNIQUE KEY | NOT NULL | FOREIGN KEY |
 | ------- | -- | ----------- | ---------- | -------- | ----------- |
 | id | unsigned bigint | o |  | o |  |
-| start_time | time |  |  |  |  |
-| end_time | time |  |  |  |  |
+| start_time | time |  |  | o |  |
+| end_time | time |  |  | o |  |
 | sunday | unsigned tinyint |  |  | o |  |
 | monday | unsigned tinyint |  |  | o |  |
 | tuesday | unsigned tinyint |  |  | o |  |
