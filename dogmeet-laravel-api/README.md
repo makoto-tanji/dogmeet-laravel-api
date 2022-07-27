@@ -1,64 +1,140 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+## テーブル設計
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+usersテーブル
+| カラム名 | 型 | PRIMARY KEY | UNIQUE KEY | NOT NULL | FOREIGN KEY |
+| ------- | -- | ----------- | ---------- | -------- | ----------- |
+| id | unsigned bigint | o |  | o |  |
+| name | varchar(191) |  |  | o |  |
+| email | varchar(191) |  | o | o |  |  |
+| password | varchar(191) |  |  | o | |
+| role | unsigned tinyint |  |  |  |  |
+| created_at | timestamp |  |  |  |	 |
+| updated_at | timestamp |  |	 |  |	 |
 
-## About Laravel
+dogsテーブル
+| カラム名 | 型 | PRIMARY KEY | UNIQUE KEY | NOT NULL | FOREIGN KEY |
+| ------- | -- | ----------- | ---------- | -------- | ----------- |
+| id | unsigned bigint | o |  | o |  |
+| dog_name | varchar(191) |  |  | o	|  |
+| overview | text |  |	|  |  |
+| birthday | date |  |	|  |	|
+| sex | unsigned tinyint |  |  |  |  |
+| thumbnail_path | varchar(191) |  |  |  |  |
+| area_id | unsigned bigint |  |  |  | areas(id) |
+| breed_id | unsigned bigint |  |  |  | breeds(id) |
+| user_id |	unsigned bigint |	 |  |  | users(id) |
+| created_at | timestamp |  |  |  |  |
+| updated_at | timestamp |  |  |  |  |
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+reservationsテーブル
+| カラム名 | 型 | PRIMARY KEY | UNIQUE KEY | NOT NULL | FOREIGN KEY |
+| ------- | -- | ----------- | ---------- | -------- | ----------- |
+| id | unsigned bigint | o |  | o |  |
+| user_id |	unsigned bigint |  |  | o | users(id) |
+| dog_id | unsigned bigint |  |  | o | dogs(id) |
+| reservation_date | dateTime |  |  | o |  |
+| created_at | timestamp |  |  |  |  |
+| updated_at | timestamp |  |  |  |  |
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+areasテーブル
+| カラム名 | 型 | PRIMARY KEY | UNIQUE KEY | NOT NULL | FOREIGN KEY |
+| ------- | -- | ----------- | ---------- | -------- | ----------- |
+| id | unsigned bigint | o |  | o |  |
+| area_name | varchar(191) |  |  | o |  |
+| created_at | timestamp |  |  |  |  |
+| updated_at | timestamp |  |  |  |  |
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+breedsテーブル
+| カラム名 | 型 | PRIMARY KEY | UNIQUE KEY | NOT NULL | FOREIGN KEY |
+| ------- | -- | ----------- | ---------- | -------- | ----------- |
+| id | unsigned bigint | o |  | o |  |
+| breed_name | varchar(191) |  |  |	o |  |
+| size | unsigned tinyint |  |  |  |  |
+| created_at | timestamp |  |  |  |  |
+| updated_at | timestamp |  |  |  |  |
 
-## Learning Laravel
+schedulesテーブル
+| カラム名 | 型 | PRIMARY KEY | UNIQUE KEY | NOT NULL | FOREIGN KEY |
+| ------- | -- | ----------- | ---------- | -------- | ----------- |
+| id | unsigned bigint | o |  | o |  |
+| start_time | time |  |  |  |  |
+| end_time | time |  |  |  |  |
+| sunday | unsigned tinyint |  |  | o |  |
+| monday | unsigned tinyint |  |  | o |  |
+| tuesday | unsigned tinyint |  |  | o |  |
+| wednesday | unsigned tinyint |  |  | o |  |
+| thursday | unsigned tinyint |  |  | o |  |
+| friday | unsigned tinyint |  |  |	o |  |
+| saturday | unsigned tinyint |  |  | o |  |
+| created_at | timestamp |  |  |  |  |
+| updated_at | timestamp |  |  |  |  |
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+dog_scheduleテーブル
+| カラム名 | 型 | PRIMARY KEY | UNIQUE KEY | NOT NULL | FOREIGN KEY |
+| ------- | -- | ----------- | ---------- | -------- | ----------- |
+| id |unsigned bigint| o |  | o |  |
+| dog_id | unsigned bigint|  |  | o | dogs(id) |
+| schedule_id | unsigned bigint |  |  | o | schedules(id) |
+| meridian | unsigned tinyint |  |  | o |  |
+| created_at | timestamp |  |  |  |  |
+| updated_at | timestamp |  |  |  |  |
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+colorsテーブル
+| カラム名 | 型 | PRIMARY KEY | UNIQUE KEY | NOT NULL | FOREIGN KEY |
+| ------- | -- | ----------- | ---------- | -------- | ----------- |
+| id | unsigned bigint | o |  | o |  |
+| color | varchar(191) |  |  | o |  |
+| created_at | timestamp |  |  |  |  |
+| updated_at | timestamp |  |  |  |  |
 
-## Laravel Sponsors
+color_dogテーブル
+| カラム名 | 型 | PRIMARY KEY | UNIQUE KEY | NOT NULL | FOREIGN KEY |
+| ------- | -- | ----------- | ---------- | -------- | ----------- |
+| id | unsigned bigint | o |  | o |  |
+| color_id | unsigned bigint |  |  | o | colors(id) |
+| dog_id | unsigned bigint |  |  | o | dogs(id) |
+| created_at | timestamp |  |  |  |  |
+| updated_at | timestamp |  |  |  |  |
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+favoritesテーブル
+| カラム名 | 型 | PRIMARY KEY | UNIQUE KEY | NOT NULL | FOREIGN KEY |
+| ------- | -- | ----------- | ---------- | -------- | ----------- |
+| id | unsigned bigint | o |  | o |  |
+| dog_id | unsigned bigint |  |  | o | dogs(id) |
+| user_id | unsigned bigint |  |  | o | users(id) |
+| created_at | timestamp |  |  |  |  |
+| updated_at | timestamp |  |  |  |  |
 
-### Premium Partners
+## ER図
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+![dogmeet drawio](https://user-images.githubusercontent.com/94814206/181248627-bbf4d46b-cf4f-4cf7-96ab-6b45d69d36a3.png)
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## API仕様
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+| パス | メソッド | リクエストボディ| パスパラメータ| &nbsp;&nbsp;&nbsp;概要&nbsp;&nbsp;&nbsp; |
+| -- | -- | -- | -- | -- |
+| /api/auth/register | POST | name, email, password |  |	会員登録 |
+| /api/auth/login | POST | name, email, password |	 | ログイン |
+| /api/auth/logout | POST |   |  | ログアウト |
+| /api/auth/update/ | POST |name, email, password | {user_id} | ユーザー情報更新 |
+| /api/auth/role/ | POST | role |{user_id} | ユーザー権限更新 |
+| /api/auth/users | GET	|   |  | ユーザー一覧取得 |
+| /api/auth/user | GET |   | | ユーザー情報取得 |
+| /api/auth/mail | POST | name, email, text |   | メール送信 |
+| /api/auth/dog |	GET |  |  | 犬情報取得 |
+| /api/auth/dog |POST | dog_name, overview, birthday, thumbnail_url, area_id, breed_id,,color_id,<br>sex_id, user_id |  | 犬追加 |
+| /api/auth/dog | GET |  | /{dog_id} | 詳細情報取得 |
+| /api/auth/dog | PUT | dog_id | /{dog_id} | 犬情報変更 |
+| /api/auth/dog |DELETE | dog_id | /{dog_id} | 犬情報削除 |
+| /api/auth/reservation | POST | dog_id, user_id, reservation_date |  | 予約登録 |
+| /api/auth/reservation | DELETE |  | /{reservation_id} | 予約削除 |
+| /api/auth/favorite | POST | dog_id, user_id |  | お気に入り登録 |
+| /api/auth/favorite/destroy | POST | dog_id, user_id |  | お気に入り削除 |
+| /api/auth/schedule | POST |start_time, end_time, sunday,<br>monday, tuesday, wednesday,<br>thursday, friday, saturday |  | スケジュール追加 |
+| /api/auth/schedule | PUT | start_time, end_time, sunday,<br>monday, tuesday, wednesday,<br>thursday, friday, saturday | /{schedule_id} | スケジュール更新 |
+| /api/auth/schedule |DELETE |  | /{schedule_id} | スケジュール削除 |
+| /api/auth/image | POST | imgFile, imgName |  | 画像追加 |
+| /api/area | GET |  |  | 公園取得 |
+| /api/breed | GET |  |  |犬種取得 |
+| /api/color | GET |  |  | 色取得 |

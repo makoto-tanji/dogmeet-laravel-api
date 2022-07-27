@@ -12,7 +12,12 @@ DogMeet
 ```
 ./
  ├────README.md
+ |
+ ├────.circleci
+ |     └────config.yml
+ |
  ├────docker-compose.yaml
+ |
  ├────docker
  |     └────dockerfile
  |
