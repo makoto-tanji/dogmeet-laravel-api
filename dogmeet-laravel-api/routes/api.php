@@ -41,7 +41,7 @@ Route::group([
 
     // 予約関連
     Route::apiResource('/reservation', ReservationController::class)->only([
-        'store', 'update', 'destroy'
+        'store', 'destroy'
     ]);
     // いいね関連
     Route::post('favorite', [FavoriteController::class, 'store']);
